@@ -66,7 +66,7 @@ Error on AMQP connection <0.321.0>:
   is EOL/insecure. To try this out here, modify `docker-compose.yml` to use the
   `rabbitmq:3.5.5` image (which bundles Erlang 18.1 instead).
 * Run the client from a distro/release that is running OpenSSL <1.1.1 (such as
-  Ubuntu 16.04 or Debian Strech, which are still on OpenSSL 1.1.0). To try this,
+  Ubuntu 16.04 or Debian Stretch, which are still on OpenSSL 1.1.0). To try this,
   modify `Dockerfile` to instead use the base image `python:3.7.4-slim-stretch`.
 * Adjust the client configuration to force it to use TLS 1.1 instead of TLS 1.2.
   To try this, uncomment the `FORCE_TLS_1_1` env var in `docker-compose.yml`.
