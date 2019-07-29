@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+
+  app:
+    build: .
+    environment:
+      - BROKER_URL=amqps://guest:guest@rabbitmq//
+      # Force the client to use TLS 1.1, which avoids the Erlang bug.
+      # - FORCE_TLS_1_1=true
+    links:
+      - rabbitmq
+
+  rabbitmq:
+    # rabbitmq:3.5.4 -> Erlang 17.5.3 (affected)
+    # rabbitmq:3.5.5 -> Erlang 18.1   (works fine)
+    image: rabbitmq:3.5.4
+    volumes:
+      - ./certs:/certs
+      - ./rabbitmq.config:/etc/rabbitmq/rabbitmq.config
